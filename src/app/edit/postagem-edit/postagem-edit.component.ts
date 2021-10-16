@@ -63,7 +63,7 @@ findAllTemas(){
 
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      this.alertas.showAlertSuccess('Postage atualizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem atualizada com sucesso!')
       this.router.navigate(['/inicio'])
     })
   }

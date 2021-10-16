@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row bg-secondary d-flex align-items-center">
+    <div class="row bg-dark d-flex align-items-center">
       <div class="col-md-6">
         <div class="row d-flex justify-content-center">
           <div class="col-md-6">
@@ -10,17 +10,17 @@
         <div class="row d-flex justify-content-center mt-5">
           <div class="col-md-6">
             <button class="btn btn-outline-light mr-3" data-toggle="modal" data-target="#novaPostagem">Publicar</button>
-            <button class="btn btn-light">Ver Postagens</button>
+            <a class="btn btn-outline-light" href="#postagens" >Ver Postagens</a>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <img src="https://i.imgur.com/PiWN0y3.png" alt="Imagem de fundo" height='500px'>
+        <img src="https://i.imgur.com/PggFbae.jpg" alt="Imagem de fundo" height='500px'>
       </div>
     </div>
   </div>  
   
-  <div class="container my-4">
+  <div class="container my-4" id="postagens">
     <nav>
     <div class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
       <a class="nav-link active text-secondary font-weight-bold" id="todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="todasPostagens" aria-selected="true">Todas Postagens</a>
@@ -39,7 +39,7 @@
       
       <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="todasPostagens-tab">
         <div class="card-columns">
-          <div class="card text-center" *ngFor='let item of listaPostagens'>
+          <div class="card text-center" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
             <div class="card-body">
               <h5 class="card-title m-0">{{item.titulo}}</h5>
               <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
@@ -60,7 +60,7 @@
       <!-- começo de minhas postagens -->
       <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="minhasPostagens-tab">
         <div class="card-columns">
-          <div class="card text-center" *ngFor='let item of usuario.postagem'>
+          <div class="card text-center" *ngFor='let item of usuario.postagem | orderBy : key : reverse'>
             <div class="card-body">
               <h5 class="card-title m-0">{{item.titulo}}</h5>
               <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
@@ -79,7 +79,7 @@
       <!-- ! começo do postagens por tema -->
       <div class="tab-pane fade" id="postagensTema" role="tabpanel" aria-labelledby="postagensTema-tab">
         <div class="card-columns" *ngFor='let tema of listaTemas'>
-          <ng-container *ngFor='let item of tema.postagem'>
+          <ng-container *ngFor='let item of tema.postagem | orderBy : key : reverse'>
             <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title m-0">{{ item.titulo }}</h5>
