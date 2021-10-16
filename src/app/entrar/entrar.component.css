@@ -1,0 +1,8 @@
+#bg-img{    
+    background: rgba(0,0,0,0.5);
+    background-image: url('https://i.imgur.com/YiWTxGu.jpg');
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+}
